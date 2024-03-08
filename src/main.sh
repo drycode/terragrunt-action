@@ -104,6 +104,21 @@ function setup_permissions {
   sudo find /github/workspace -name ".terraform*" -exec chmod -R 777 {} \;
 }
 
+function setup_aws_credentials_file() {
+  mkdir -p /github/workspace/.aws  
+  touch $AWS_SHARED_CREDENTIALS_FILE
+  echo "[tf-deploy-prod]" >> $AWS_SHARED_CREDENTIALS_FILE
+  echo aws_access_key_id=$AWS_ACCESS_KEY_ID >> $AWS_SHARED_CREDENTIALS_FILE
+  echo aws_secret_access_key=$AWS_SECRET_ACCESS_KEY >> $AWS_SHARED_CREDENTIALS_FILE
+}
+
+function add_trusted_host_to_pip() {  
+  mkdir -p ~/.config/pip/
+  mkdir -p /github/workspace/.config/pip/
+  cp /github/workspace/$PIP_CONF_FILE ~/.config/pip/pip.conf
+  cp /github/workspace/$PIP_CONF_FILE /github/workspace/.config/pip/pip.conf
+}
+
 # Run INPUT_PRE_EXEC_* environment variables as Bash code
 function setup_pre_exec {
   # Get all environment variables that match the pattern INPUT_PRE_EXEC_*
@@ -161,6 +176,8 @@ function main {
   setup_git
   setup_permissions "${tg_dir}"
   trap 'setup_permissions $tg_dir ' EXIT
+  setup_aws_credentials_file
+  add_trusted_host_to_pip
   setup_pre_exec
 
   install_terraform "${tf_version}"

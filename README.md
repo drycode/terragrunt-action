@@ -26,6 +26,11 @@ Supported environment variables:
 | TF_VAR_name            | Define custom variable name as inputs                                                                        |
 | INPUT_PRE_EXEC_number  | Environment variable is utilized to provide custom commands that will be executed before running Terragrunt  |
 | INPUT_POST_EXEC_number | Environment variable is utilized to provide custom commands that will be executed *after* running Terragrunt |
+|AWS_PROFILE_NAME| The name associated with the invocation profile in the Terraform file |
+AWS_SHARED_CREDENTIALS_FILE | Environment variable is utilized to configure AWS for the Terragrunt invocation | 
+AWS_ACCESS_KEY_ID | AWS Access Key |
+AWS_SECRET_ACCESS_KEY | AWS Secret Access Key | 
+PIP_CONF_FILE | Location of pip configuration file for use when fetching from private artifactory |
 
 ## Outputs
 
