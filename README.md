@@ -2,6 +2,11 @@
 
 A GitHub Action for installing and running Terragrunt
 
+## Rationale
+This is a forked repo because I had a client looking for `aws cli` and `pip` functionality within the Terragrunt container to conform to the structure of many of their existing Terraform scripts. 
+
+This fork essentially installs those dependencies and adds a configuration step to the `main.sh` to configure both AWS and pip
+
 ## Inputs
 
 Supported GitHub action inputs:
@@ -26,6 +31,11 @@ Supported environment variables:
 | TF_VAR_name            | Define custom variable name as inputs                                                                        |
 | INPUT_PRE_EXEC_number  | Environment variable is utilized to provide custom commands that will be executed before running Terragrunt  |
 | INPUT_POST_EXEC_number | Environment variable is utilized to provide custom commands that will be executed *after* running Terragrunt |
+|AWS_PROFILE_NAME| The name associated with the invocation profile in the Terraform file |
+AWS_SHARED_CREDENTIALS_FILE | Environment variable is utilized to configure AWS for the Terragrunt invocation | 
+AWS_ACCESS_KEY_ID | AWS Access Key |
+AWS_SECRET_ACCESS_KEY | AWS Secret Access Key | 
+PIP_CONF_FILE | Location of pip configuration file for use when fetching from private artifactory |
 
 ## Outputs
 
