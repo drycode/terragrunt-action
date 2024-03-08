@@ -2,6 +2,11 @@
 
 A GitHub Action for installing and running Terragrunt
 
+## Rationale
+This is a forked repo because I had a client looking for `aws cli` and `pip` functionality within the Terragrunt container to conform to the structure of many of their existing Terraform scripts. 
+
+This fork essentially installs those dependencies and adds a configuration step to the `main.sh` to configure both AWS and pip
+
 ## Inputs
 
 Supported GitHub action inputs:
