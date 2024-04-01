@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     pip \
     awscli \
+    rsync \
     && rm -rf /var/lib/apt/lists/*
 
 # Create runner user

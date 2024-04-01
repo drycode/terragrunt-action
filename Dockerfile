@@ -1,5 +1,5 @@
 # Dockerfile used in execution of Github Action
-FROM danyoungmusic93/drycodeworks:terragrunt-fork-0.0.2
+FROM danyoungmusic93/drycodeworks:terragrunt-fork-0.0.3
 
 COPY ["./src/main.sh", "/action/main.sh"]
 
