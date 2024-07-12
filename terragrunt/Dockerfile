@@ -1,6 +1,6 @@
 # Container to run Terragrunt and Terraform
 # Contains inside TFenv and TGSwitch to allow users to install custom Terraform and Terragrunt versions
-FROM ubuntu:22.04
+FROM ubuntu:24.10
 
 ARG TF_ENV_VERSION=v3.0.0
 ARG TGSWITCH_VERSION=0.6.0
